@@ -14,8 +14,7 @@
 	"permissions": [
 		"tabs",
 		"webRequest", "webRequestBlocking",
-		"*://connect.facebook.net/*",
-		"*://*.google-analytics.com/*"
+		"*://*/*"
 	],
-	"version": "0.0.1"
+	"version": "0.0.2"
 }

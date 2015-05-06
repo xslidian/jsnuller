@@ -5,6 +5,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 	{
 		urls: [
 			"*://connect.facebook.net/*.js*",
+			"*://hm.baidu.com/*.js*",
 			"*://*.google-analytics.com/*"
 		]
 	},
