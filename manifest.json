@@ -1,0 +1,21 @@
+{
+	"name": "JS Nuller",
+	"short_name": "jsnuller",
+	"description": "Block unnecessary script requests.",
+	"icons": {
+	},
+	"manifest_version": 2,
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"permissions": [
+		"tabs",
+		"webRequest", "webRequestBlocking",
+		"*://connect.facebook.net/*",
+		"*://*.google-analytics.com/*"
+	],
+	"version": "0.0.1"
+}
