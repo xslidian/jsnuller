@@ -8,9 +8,29 @@ chrome.webRequest.onBeforeRequest.addListener(
 			"*://hm.baidu.com/*.js*",
 			"*://clientstat.duokan.com/*",
 			"*://log.mmstat.com/*",
+			//"*://59.108.34.106/*",
+			//"*://*/PASV/*",
+			"*://114.215.114.158/*",
 			"*://pagead2.googlesyndication.com/*",
 			"*://*.google-analytics.com/*"
 		]
 	},
 	["blocking"]
 );
+
+chrome.webRequest.onHeadersReceived.addListener(
+	function(e) {
+		if (e.statusCode != 302) return;
+		console.log(e.statusCode, e.responseHeaders, e.url);
+		for (var i = 0; i < e.responseHeaders.length; i++) {
+			if (e.responseHeaders[i].name.toLowerCase() == 'location' && e.responseHeaders[i].value.indexOf('PASV') > -1) {
+				console.warn(e.responseHeaders[i].value, e.url);
+				return { redirectUrl: e.url };
+				//e.responseHeaders[i].value = e.url;
+				break;
+			}
+		}
+		//return { responseHeaders: e.responseHeaders };
+	}, {
+		urls: ['*://*/*.js*']
+	}, ['blocking', 'responseHeaders']);
