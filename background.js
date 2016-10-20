@@ -6,9 +6,11 @@ chrome.webRequest.onBeforeRequest.addListener(
 		urls: [
 			"*://connect.facebook.net/*.js*",
 			"*://hm.baidu.com/*.js*",
+			'*://baifendian.com/*',
 			"*://clientstat.duokan.com/*",
 			"*://*.mlinks.cc/*",
 			"*://log.mmstat.com/*",
+			'*://tajs.qq.com/*',
 			//"*://59.108.34.106/*",
 			//"*://*/PASV/*",
 			"*://114.215.114.158/*",
