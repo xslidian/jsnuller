@@ -25,7 +25,7 @@ chrome.webRequest.onHeadersReceived.addListener(
 		console.log(e.statusCode, e.responseHeaders, e.url);
 		for (var i = 0; i < e.responseHeaders.length; i++) {
 			if (e.responseHeaders[i].name.toLowerCase() != 'location') continue;
-			if (e.responseHeaders[i].value.indexOf('PASV') > -1 || e.responseHeaders[i].value.indexOf('/pjk/xjk/ys.php') > -1) {
+			if (e.responseHeaders[i].value.indexOf('PASV') > -1 || e.responseHeaders[i].value.match(/\/pjk\/\w+\/ys\.php\?/) !== null) {
 				console.warn(e.responseHeaders[i].value, e.url);
 				return { redirectUrl: e.url };
 				//e.responseHeaders[i].value = e.url;
