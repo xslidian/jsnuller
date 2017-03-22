@@ -5,11 +5,16 @@ chrome.webRequest.onBeforeRequest.addListener(
 	{
 		urls: [
 			"*://connect.facebook.net/*.js*",
+			"*://*.anquan.org/*.js*",
 			"*://hm.baidu.com/*.js*",
-			'*://baifendian.com/*',
+			'*://*.baifendian.com/*',
 			"*://clientstat.duokan.com/*",
+			'*://dzt.twos.net.cn/*',
+			'*://*.minisplat.cn/*',
 			"*://*.mlinks.cc/*",
 			"*://log.mmstat.com/*",
+			'*://s.360.cn/so/*',
+			'*://js.passport.qihucdn.com/*',
 			'*://tajs.qq.com/*',
 			//"*://59.108.34.106/*",
 			//"*://*/PASV/*",
@@ -27,7 +32,10 @@ chrome.webRequest.onHeadersReceived.addListener(
 		console.log(e.statusCode, e.responseHeaders, e.url);
 		for (var i = 0; i < e.responseHeaders.length; i++) {
 			if (e.responseHeaders[i].name.toLowerCase() != 'location') continue;
-			if (e.responseHeaders[i].value.indexOf('PASV') > -1 || e.responseHeaders[i].value.match(/\/pjk\/\w+\/ys\.php\?/) !== null) {
+			if (e.responseHeaders[i].value.indexOf('PASV') > -1
+				|| e.responseHeaders[i].value.match(/\/pjk\/\w+\/ys\.php\?/) !== null
+				|| e.responseHeaders[i].value.indexOf('101.200.40.11') > -1
+				) {
 				console.warn(e.responseHeaders[i].value, e.url);
 				return { redirectUrl: e.url };
 				//e.responseHeaders[i].value = e.url;
