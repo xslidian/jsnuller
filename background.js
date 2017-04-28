@@ -10,6 +10,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 			'*://*.baifendian.com/*',
 			"*://clientstat.duokan.com/*",
 			'*://dzt.twos.net.cn/*',
+			'*://*.gridsumdissector.com/*',
 			'*://*.minisplat.cn/*',
 			"*://*.mlinks.cc/*",
 			"*://log.mmstat.com/*",
